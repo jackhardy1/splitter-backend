@@ -1,7 +1,7 @@
 describe Item do
 
-  let(:item_name) {"food"}
-  let(:item_price) {200.0}
+  let(:item_name) { "food" }
+  let(:item_price) { 200.0 }
 
   before do
     Item.create name: item_name, price: item_price
