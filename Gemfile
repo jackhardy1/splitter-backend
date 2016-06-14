@@ -7,11 +7,13 @@ gem 'rails-api'
 
 gem 'spring', :group => :development
 
-
 gem 'pg'
+
+gem 'devise'
 
 group :test do
   gem 'rspec-rails'
+  gem 'shoulda'
 end
 
 group :development do
