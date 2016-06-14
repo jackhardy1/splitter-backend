@@ -12,6 +12,7 @@ gem 'pg'
 
 group :test do
   gem 'rspec-rails'
+  gem 'shoulda'
 end
 
 group :development do
