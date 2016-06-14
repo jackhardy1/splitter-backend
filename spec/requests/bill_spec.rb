@@ -12,7 +12,7 @@ describe 'bills API' do
   end
 
   describe '#create' do
-    it 'creates a list of bills' do
+    it 'creates a bill' do
       post bills_path, { params: { bill: { event: 'party' }}}
       expect(response).to be_success
       expect(Bill.count).to eq 1
