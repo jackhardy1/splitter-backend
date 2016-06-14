@@ -15,6 +15,7 @@ group :test do
   gem 'rspec-rails'
   gem 'shoulda'
   gem 'factory_girl_rails'
+  gem 'rspec-json_expectations'
 end
 
 group :development do

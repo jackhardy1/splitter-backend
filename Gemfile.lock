@@ -111,6 +111,7 @@ GEM
     rspec-expectations (3.4.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.4.0)
+    rspec-json_expectations (1.3.0)
     rspec-mocks (3.4.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.4.0)
@@ -154,6 +155,7 @@ DEPENDENCIES
   rack-cors
   rails (= 4.2.6)
   rails-api
+  rspec-json_expectations
   rspec-rails
   shoulda
   spring
