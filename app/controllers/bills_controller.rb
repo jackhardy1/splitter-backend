@@ -15,12 +15,12 @@ class BillsController < ApplicationController
   private
 
   def bill_params
-    image = convert_image(params[:image])
+    image = convert_image
     params.permit(:event).merge(image: image)
   end
 
-  def convert_image(image)
-    image = Paperclip.io_adapters.for(params[:image])
+  def convert_image
+    Paperclip.io_adapters.for(params[:image])
   end
 
 end
