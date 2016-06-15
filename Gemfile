@@ -11,6 +11,8 @@ gem 'pg'
 
 gem 'devise'
 
+gem 'paperclip'
+
 group :test do
   gem 'rspec-rails'
   gem 'shoulda'
