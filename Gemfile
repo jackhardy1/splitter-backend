@@ -11,7 +11,13 @@ gem 'pg'
 
 gem 'devise'
 
+gem 'active_model_serializers'
+
 gem 'paperclip'
+
+gem 'aws-sdk'
+
+gem 'dotenv-rails'
 
 group :test do
   gem 'rspec-rails'
