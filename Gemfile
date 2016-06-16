@@ -13,6 +13,10 @@ gem 'devise'
 
 gem 'paperclip'
 
+gem 'dotenv-rails'
+
+gem 'aws-sdk', '< 2.0'
+
 group :test do
   gem 'rspec-rails'
   gem 'shoulda'
