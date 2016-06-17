@@ -11,6 +11,7 @@ class Bill < ActiveRecord::Base
      %x`tesseract fake-receipt.jpg output`
      find_total
      create_items
+     %x`rm output.txt`
    end
 
   private
