@@ -6,10 +6,12 @@ class BillsController < ApplicationController
 
   def create
     Bill.create(bill_params)
+    Bill.last.tesseract
   end
 
   def show
     render json: Bill.find(params[:id])
+
   end
 
   private
@@ -22,5 +24,4 @@ class BillsController < ApplicationController
   def convert_image
     Paperclip.io_adapters.for(params[:image])
   end
-
 end
