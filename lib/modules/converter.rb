@@ -22,7 +22,11 @@ module Converter
    File.open './output.txt', 'r' do |file|
      file.each_line do |line|
        if search_for_words(line).length != 0
-         Item.create(name: search_for_words(line), price: search_for_float(line))
+         Item.create(
+         name: search_for_words(line),
+         price: search_for_float(line),
+         bill_id: Bill.last.id
+         )
        end
      end
    end

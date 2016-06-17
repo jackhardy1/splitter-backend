@@ -1,6 +1,7 @@
 require './lib/modules/converter.rb'
 class BillsController < ApplicationController
   include Converter
+
   def index
     render json: Bill.all
   end
