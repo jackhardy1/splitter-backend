@@ -1,17 +1,17 @@
+require './lib/modules/converter.rb'
 class BillsController < ApplicationController
-
+  include Converter
   def index
     render json: Bill.all
   end
 
   def create
     Bill.create(bill_params)
-    Bill.last.tesseract
+    tesseract
   end
 
   def show
     render json: Bill.find(params[:id])
-
   end
 
   private

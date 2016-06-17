@@ -11,6 +11,8 @@ gem 'pg'
 
 gem 'devise'
 
+gem 'byebug'
+
 gem 'active_model_serializers'
 
 gem 'paperclip'
