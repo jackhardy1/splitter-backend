@@ -9,4 +9,8 @@ describe Bill do
     expect(my_bill.event).to eq event_name
   end
 
+  context 'adding image' do
+    describe ''
+  end
+
 end
