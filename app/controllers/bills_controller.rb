@@ -6,6 +6,7 @@ class BillsController < ApplicationController
 
   def create
     Bill.create(bill_params)
+    Bill.last.tesseract
   end
 
   def show
