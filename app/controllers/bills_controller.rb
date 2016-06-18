@@ -8,9 +8,7 @@ class BillsController < ApplicationController
 
   def create
     Bill.create(bill_params)
-    p 'Bill created'
-    tesseract
-    p 'Tesseract completed'
+    # tesseract
   end
 
   def show
