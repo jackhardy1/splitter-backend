@@ -8,7 +8,7 @@ class BillsController < ApplicationController
 
   def create
     Bill.create(bill_params)
-    tesseract
+    # tesseract
   end
 
   def show
