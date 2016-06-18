@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160616202516) do
+ActiveRecord::Schema.define(version: 20160618125238) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,15 +30,8 @@ ActiveRecord::Schema.define(version: 20160616202516) do
 
   add_index "bills", ["user_id"], name: "index_bills_on_user_id", using: :btree
 
-  create_table "items", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "name"
-    t.float    "price"
-    t.integer  "bill_id"
-  end
-
-  add_index "items", ["bill_id"], name: "index_items_on_bill_id", using: :btree
+# Could not dump table "items" because of following StandardError
+#   Unknown type 'bills' for column 'references'
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
