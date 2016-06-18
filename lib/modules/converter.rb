@@ -1,7 +1,7 @@
 module Converter
 
   def tesseract
-    system("convert #{Bill.last.image.url} -resize 6000 receipt.jpg")
+    system("convert #{Bill.last.image.url} receipt.jpg")
     system("convert receipt.jpg -type Grayscale receipt.jpg")
     system("tesseract receipt.jpg output")
     find_total
