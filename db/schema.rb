@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20160617103941) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.float    "total"
+
   end
 
   add_index "bills", ["user_id"], name: "index_bills_on_user_id", using: :btree

@@ -11,11 +11,15 @@ gem 'pg'
 
 gem 'devise'
 
+gem 'byebug'
+
+gem 'active_model_serializers'
+
 gem 'paperclip'
 
-gem 'dotenv-rails'
-
 gem 'aws-sdk', '< 2.0'
+
+gem 'dotenv-rails'
 
 group :test do
   gem 'rspec-rails'
