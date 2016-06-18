@@ -19,7 +19,7 @@ class BillsController < ApplicationController
 
   def bill_params
     image = convert_image
-    params.permit(:event).merge(image: image)
+    params.permit(:event, :image).merge(image: image)
   end
 
   def convert_image
