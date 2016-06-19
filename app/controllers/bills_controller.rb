@@ -1,4 +1,6 @@
+require './lib/modules/converter.rb'
 class BillsController < ApplicationController
+  include Converter
 
   def index
     render json: Bill.all
@@ -6,6 +8,7 @@ class BillsController < ApplicationController
 
   def create
     Bill.create(bill_params)
+    tesseract
   end
 
   def show
@@ -22,5 +25,4 @@ class BillsController < ApplicationController
   def convert_image
     Paperclip.io_adapters.for(params[:image])
   end
-
 end
