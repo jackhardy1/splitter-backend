@@ -43,4 +43,13 @@ describe 'bills API' do
       expect(json).not_to include_json(event: 'party')
     end
   end
+
+  describe '#update' do
+    it 'updates an individual bill' do
+      my_bill = Bill.create(image: image)
+      patch bill_path(my_bill), { event: 'Party at Noahs' }
+      expect(response).to be_success
+      expect(Bill.last.event).to eq('Party at Noahs')
+    end
+  end
 end

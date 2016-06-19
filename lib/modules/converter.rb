@@ -25,6 +25,7 @@ module Converter
          Item.create(
          name: search_for_words(line),
          price: search_for_float(line),
+         quantity: search_for_integer(line),
          bill_id: Bill.last.id
          )
        end
@@ -33,10 +34,20 @@ module Converter
   end
 
   def search_for_float(line)
-   line.scan(/(\d+[,.]\d+)/).flatten[0].to_f
+    line.gsub!(',','.')
+    line.scan(/(\d+[,.]\d+)/).flatten[0].to_f
+  end
+
+  def search_for_integer(line)
+    line.gsub!(',','.')
+    quantity_exists?(line) ? line.scan(/(\d+)/).flatten[0].to_i : 1
   end
 
   def search_for_words(line)
-   line.split(" ").select{|word|word.match(/([a-z])/)}.join(" ")
+    line.split(" ").select{|word|word.match(/([a-z])/)}.join(" ")
+  end
+
+  def quantity_exists?(line)
+    line.scan(/(\d+)/).flatten[0].to_i
   end
 end

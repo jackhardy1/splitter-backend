@@ -18,5 +18,4 @@ describe Item do
     my_item = Item.first
     expect(my_item.price).to eq item_price
   end
-
 end
