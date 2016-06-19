@@ -15,11 +15,16 @@ class BillsController < ApplicationController
     render json: Bill.find(params[:id])
   end
 
+  def update
+    current_bill = Bill.find(params[:id])
+    current_bill.update(bill_params)
+  end
+
   private
 
   def bill_params
     image = convert_image
-    params.permit(:event).merge(image: image)
+    params.permit(:event, :image).merge(image: image)
   end
 
   def convert_image
