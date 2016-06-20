@@ -10,6 +10,7 @@ describe Bill do
   end
 
   # context 'adding image' do
+<<<<<<< HEAD
   #
   #   before (:each) do
   #     Bill.create  event: "la tasc", image: File.readlines("spec/fixtures/bill")[0]
@@ -21,6 +22,9 @@ describe Bill do
   #     expect(bill.last.total).to eq(33.35)
   #   end
 
+=======
+  #   describe ''
+>>>>>>> 4c09375c0a1b1d66f22264d1a42249220ecf5436
   # end
 
 end
