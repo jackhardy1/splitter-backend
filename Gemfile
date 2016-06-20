@@ -9,8 +9,6 @@ gem 'spring', :group => :development
 
 gem 'pg'
 
-gem 'devise'
-
 gem 'byebug'
 
 gem 'active_model_serializers'
@@ -20,6 +18,10 @@ gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
 
 gem 'dotenv-rails'
+
+gem 'devise_token_auth'
+
+gem 'omniauth'
 
 group :test do
   gem 'rspec-rails'
