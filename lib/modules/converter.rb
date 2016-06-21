@@ -40,14 +40,11 @@ module Converter
 
   def search_for_integer(line)
     line.gsub!(',','.')
-    quantity_exists?(line) ? line.scan(/(\d+)/).flatten[0].to_i : 1
+    line.scan(/(\d+)/).flatten[0].to_i
   end
 
   def search_for_words(line)
     line.split(" ").select{|word|word.match(/([a-z])/)}.join(" ")
   end
 
-  def quantity_exists?(line)
-    line.scan(/(\d+)/).flatten[0].to_i
-  end
 end
