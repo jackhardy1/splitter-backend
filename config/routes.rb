@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
 
   resources :bills, except: [:new, :edit] do
-    resources :items, except: [:new, :edit]
+    resources :items, except: [:new, :edit, :delete]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   #   get 'products/:id' => 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+    delete 'bills/:bill_id/items/:id' => 'items#destroy', as: :delete_item
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

@@ -8,10 +8,25 @@ class ItemsController < ApplicationController
     Item.create(item_params)
   end
 
+  def destroy
+    item = Item.find(params[:id])
+    item.destroy
+  end
+
+  def show
+    render json: Item.find(params[:id])
+  end
+
+  def update
+    item = Item.find(params[:id])
+    item.update(item_params)
+  end
+
   private
 
   def item_params
-    params.require(:params).require(:item).permit(:name, :price)
+    bill = params.require(:bill_id)
+    params.require(:item).permit(:name, :price, :quantity).merge(bill_id: bill)
   end
 
 end
