@@ -15,7 +15,8 @@ describe 'items API' do
 
   describe '#create' do
     it 'creates an item' do
-      post bill_items_path(bill), item
+      params = {name:"jack", price:1, quantity:1}
+      post bill_items_path(bill), {item: params}
       expect(response).to be_success
       expect(Item.count).to eq 1
     end
@@ -31,7 +32,8 @@ describe 'items API' do
 
   describe '#update' do
     it 'updates an item with contact details' do
-      patch patch_item_path(bill.id, item.id), { contact: "email@gmail.com" }
+      params = {contact:"email@gmail.com"}
+      patch bill_item_path(bill.id, item.id), { item: params }
       expect(response).to be_success
       expect(Item.last.contact).to eq "email@gmail.com"
     end

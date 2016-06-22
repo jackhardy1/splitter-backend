@@ -26,7 +26,7 @@ class ItemsController < ApplicationController
 
   def item_params
     bill = params.require(:bill_id)
-    params.require(:item).permit(:name, :price, :quantity).merge(bill_id: bill)
+    params.require(:item).permit(:name, :price, :quantity, :contact).merge(bill_id: bill)
   end
 
 end
