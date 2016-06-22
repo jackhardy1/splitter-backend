@@ -23,7 +23,7 @@ describe 'bills API' do
       post bills_path, { event: "spanish", image: image }
       expect(response).to be_success
       expect(Bill.last.image_content_type).to eq 'image/gif'
-      expect(Bill.last.total).to eq 33.35
+      expect(Bill.last.total).to eq 33.00
     end
 
     it 'converts image to text, adding items to database' do
