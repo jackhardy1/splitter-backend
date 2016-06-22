@@ -33,5 +33,4 @@ class ApplicationController < ActionController::API
     response.headers['Access-Control-Allow-Origin'] = request.headers['Origin'] || '*'
     response.headers['Access-Control-Allow-Credentials'] = 'true'
   end
-
 end
