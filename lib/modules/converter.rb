@@ -1,7 +1,7 @@
 module Converter
 
   def tesseract
-    system("convert #{Bill.last.image.url} -resize 6000 receipt.jpg")
+    system("convert #{Bill.last.image.url}  -scale 50% receipt.jpg")
     system("convert receipt.jpg -type Grayscale receipt.jpg")
     system("tesseract receipt.jpg output")
     find_total
@@ -40,14 +40,11 @@ module Converter
 
   def search_for_integer(line)
     line.gsub!(',','.')
-    quantity_exists?(line) ? line.scan(/(\d+)/).flatten[0].to_i : 1
+    line.scan(/(\d+)/).flatten[0].to_i
   end
 
   def search_for_words(line)
     line.split(" ").select{|word|word.match(/([a-z])/)}.join(" ")
   end
 
-  def quantity_exists?(line)
-    line.scan(/(\d+)/).flatten[0].to_i
-  end
 end

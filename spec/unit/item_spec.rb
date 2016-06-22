@@ -25,4 +25,10 @@ describe Item do
     expect(my_item.contact).to eq "test@gmail.com"
   end
 
+  it 'deletes an item from the bill' do
+    my_item = Item.first
+    my_item.destroy
+    expect(Item.count).to eq 0
+  end
+
 end

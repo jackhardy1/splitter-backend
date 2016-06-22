@@ -23,6 +23,8 @@ Rails.application.routes.draw do
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   patch 'bills/:bill_id/items/:id' => 'items#update', as: :patch_item
+  delete 'bills/:bill_id/items/:id' => 'items#destroy', as: :delete_item
+
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
