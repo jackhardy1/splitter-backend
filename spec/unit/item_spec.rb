@@ -19,15 +19,16 @@ describe Item do
     expect(my_item.price).to eq item_price
   end
 
+  it 'updates item with email address' do
+    my_item = Item.first
+    my_item.update(contact: "test@gmail.com")
+    expect(my_item.contact).to eq "test@gmail.com"
+  end
+
   it 'deletes an item from the bill' do
     my_item = Item.first
     my_item.destroy
     expect(Item.count).to eq 0
   end
 
-  it 'edits an item from the bill' do
-    my_item = Item.first
-    my_item.update(name: "test")
-    expect(my_item.name).to eq "test"
-  end
 end

@@ -43,4 +43,25 @@ describe 'bills API' do
       expect(json).not_to include_json(event: 'party')
     end
   end
+
+  describe '#update' do
+    it 'updates an individual bill' do
+      my_bill = Bill.create(image: image)
+      patch bill_path(my_bill), { event: 'Party at Noahs' }
+      expect(response).to be_success
+      expect(Bill.last.event).to eq('Party at Noahs')
+    end
+  end
+
+  describe '#mailer' do
+    it 'sends an e-mail to all item contacts in bill' do
+      bill = Bill.create(id: 3, event: 'fun')
+      item = Item.create(id: 5, name: 'food', price: 5, bill_id: bill.id, contact: 'test@gmail.com')
+      get mailer_bills_path, { bill_id: 3 }
+      email = ActionMailer::Base.deliveries.last
+      expect(email.to).to eq ['test@gmail.com']
+      expect(email.body).to include 'SPLITTER'
+    end
+  end
+
 end
