@@ -8,10 +8,28 @@ class ItemsController < ApplicationController
     Item.create(item_params)
   end
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  def update
+    Item.find(params[:id])
+  end
+
   private
 
   def item_params
-    params.require(:params).require(:item).permit(:name, :price)
+    params.require(:params).require(:item).permit(:name, :price, :contact)
   end
 
 end

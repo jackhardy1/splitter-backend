@@ -18,4 +18,11 @@ describe Item do
     my_item = Item.first
     expect(my_item.price).to eq item_price
   end
+
+  it 'updates item with email address' do
+    my_item = Item.first
+    my_item.update(contact: "test@gmail.com")
+    expect(my_item.contact).to eq "test@gmail.com"
+  end
+
 end

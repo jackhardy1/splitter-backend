@@ -20,6 +20,10 @@ class BillsController < ApplicationController
     current_bill.update(bill_params)
   end
 
+  def mailer
+    SplitterMailer.send_payment_email(params[:bill_id])
+  end
+
   private
 
   def bill_params

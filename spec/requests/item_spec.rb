@@ -3,6 +3,7 @@ describe 'items API' do
   let(:json) { JSON.parse(response.body) }
   let(:bill_with_items) { create(:bill_with_items) }
   let(:bill) { create(:bill) }
+  let(:item) { create(:item) }
 
   describe '#index' do
     it 'sends list of items for Bill' do
@@ -19,5 +20,6 @@ describe 'items API' do
       expect(Item.count).to eq 1
     end
   end
+
 
 end
