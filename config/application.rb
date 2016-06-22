@@ -24,7 +24,7 @@ Bundler.require(*Rails.groups)
        resource '*',
              :headers => :any,
              :expose  => ['access-token', 'expiry', 'token-type', 'uid', 'client'],
-             :methods => [:get, :post, :delete, :put, :options]
+             :methods => [:get, :post, :delete, :put, :patch, :options]
     end
   end
 
