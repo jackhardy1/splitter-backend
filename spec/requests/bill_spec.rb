@@ -55,12 +55,13 @@ describe 'bills API' do
 
   describe '#mailer' do
     it 'sends an e-mail to all item contacts in bill' do
-      bill = Bill.create(id: 3, event: 'fun')
-      item = Item.create(id: 5, name: 'food', price: 5, bill_id: bill.id, contact: 'test@gmail.com')
-      get mailer_bills_path, { bill_id: 3 }
+      User.create(id: 2, provider: 'email', email: 'mybill@gmail.com', password: 'password')
+      Bill.create(id: 3, event: 'fun', user_id: 2)
+      Item.create(bill_id: 3, contact: 'test@gmail.com', name: 'food', price: 3.00)
+      post mailer_bills_path, { bill_id: 3 }
       email = ActionMailer::Base.deliveries.last
       expect(email.to).to eq ['test@gmail.com']
-      expect(email.body).to include 'SPLITTER'
+      expect(email.body).to include 'You Have a Payment Request From Splitter'
     end
   end
 

@@ -22,9 +22,33 @@ class SplitterMailer < ApplicationMailer
   end
 
   def send_email(items)
-    @items = Item.all
-    email = @items.first.contact
-    mail( to: email, subject: 'Here is your Bill')
+    @items = items
+    find_user
+    calculate_total
+    find_recipient_email
+    mail( to: @email, subject: 'Here is your Bill')
   end
 
-end
+  private
+
+  def find_user
+    find_bill
+    @user = User.find(@bill.user_id)
+  end
+
+  def find_bill
+    @bill = Bill.find(@items.first.bill_id)
+  end
+
+  def find_recipient_email
+    @email = @items.first.contact
+  end
+
+  def calculate_total
+    @total = 0
+    @items.each do |item|
+      @total += item.price
+    end
+  end
+
+  end

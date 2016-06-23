@@ -4,9 +4,10 @@ describe SplitterMailer do
 
   describe 'payment_email' do
     before(:each) do
-      Bill.create(id: 3, event: 'fun')
-      Item.create(bill_id: 3, contact: "test@gmail.com", name: "food", price: 3.00)
-      Item.create(bill_id: 3, contact: "test2@gmail.com", name: "drink", price: 4.00)
+      User.create(id: 2, provider: 'email', email: 'mybill@gmail.com', password: 'password')
+      Bill.create(id: 3, event: 'fun', user_id: 2)
+      Item.create(bill_id: 3, contact: 'myitems@gmail.com', name: 'food', price: 3.00)
+      Item.create(bill_id: 3, contact: 'myitems2@gmail.com', name: 'drink', price: 4.00)
     end
 
     it 'sends e-mail to given address' do
