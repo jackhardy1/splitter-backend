@@ -5,14 +5,21 @@
   </head>
   <body>
 
-    SPLITTER
+    <h1>You Have a Payment Request From Splitter</h1>
+    <p>Welcome to Splitter, the bill splitting app that lets you pay your friends back for your order.</p>
+    <p>Your friend has paid the bill total and the following items have been assigned to you:</p>
     <ul>
       <% @items.each do |item| %>
-        <li><strong>Item:</strong> <%= item.name %></li>
+        <li>
+          <h3><%= item.name %></h3>
+          <p>Price: £<%= item.price %></p>
+        </li>
       <% end %>
-
-
     </ul>
+
+    <h3>Total: £<%= @total %></h3>
+
+    <p>You can pay your friend back by clicking <a href="https://www.paypal.com/cgi-bin/webscr?business=<%= @user.email %>&cmd=_xclick&currency_code=GBP&amount=<%= @total %>">this link</a></p>
 
   </body>
 </html>
