@@ -7,9 +7,7 @@ module Converter
     system("rm output.txt")
     system("rm receipt.jpg")
   end
-
-  private
-
+  
   def create_items
    File.open './output.txt', 'r' do |file|
      file.each_line do |line|
@@ -36,7 +34,7 @@ module Converter
   end
 
   def search_for_words(line)
-    line.split(" ").select{|word|word.match(/([a-z])/)}.join(" ")
+    line.split(" ").select{|word|word.match(/([a-zA-Z])/)}.join(" ").capitalize
   end
 
 end
