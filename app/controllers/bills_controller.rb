@@ -28,9 +28,9 @@ class BillsController < ApplicationController
 
   def bill_params
     image = convert_image
-    params.permit(:event, :image).merge(image: image)
+    params.permit(:event, :image, :user_id).merge(image: image)
   end
-
+  
   def convert_image
     Paperclip.io_adapters.for(params[:image])
   end

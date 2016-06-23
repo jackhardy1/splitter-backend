@@ -6,6 +6,13 @@
   <body>
 
     SPLITTER
+    <ul>
+      <% @items.each do |item| %>
+        <li><strong>Item:</strong> <%= item.name %></li>
+      <% end %>
+
+
+    </ul>
 
   </body>
 </html>

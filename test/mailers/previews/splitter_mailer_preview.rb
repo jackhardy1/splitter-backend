@@ -1,7 +1,7 @@
 class SplitterMailerPreview < ActionMailer::Preview
 
-  def payment_email_preview
-    SplitterMailer.payment_email(Item.first)
+  def send_email_preview
+    SplitterMailer.send_email(Item.first)
   end
 
 end

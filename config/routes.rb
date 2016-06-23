@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :bills, except: [:new, :edit] do
     collection do
-      get 'mailer'
+      post 'mailer'
     end
     resources :items, except: [:new, :edit, :update]
   end

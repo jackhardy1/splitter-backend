@@ -22,8 +22,8 @@ class SplitterMailer < ApplicationMailer
   end
 
   def send_email(items)
-    @items = items
-    email = items.first.contact
+    @items = Item.all
+    email = @items.first.contact
     mail( to: email, subject: 'Here is your Bill')
   end
 
