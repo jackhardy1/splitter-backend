@@ -51,3 +51,13 @@ module Converter
     line.scan(/(\d+)/).flatten[0].to_i
   end
 end
+
+def create_quantity
+  File.open './test.txt', 'r' do |file|
+    file.each_line do |line|
+      search_for_integer(line).times do
+        puts search_for_words(line) + "#{(search_for_float(line) / search_for_integer(line))}"
+      end
+    end
+  end
+end
