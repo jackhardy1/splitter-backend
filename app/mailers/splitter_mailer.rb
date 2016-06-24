@@ -2,6 +2,7 @@ class SplitterMailer < ApplicationMailer
   default from: "bills@splitter.com"
 
   def self.send_payment_email(bill_id)
+    @bill_id = bill_id
     emails = self.find_emails(bill_id)
     self.find_items(emails)
   end
@@ -18,7 +19,7 @@ class SplitterMailer < ApplicationMailer
   end
 
   def self.get_items(email)
-    items = Item.where(contact: email)
+    items = Item.where(contact: email, bill_id: @bill_id)
   end
 
   def send_email(items)

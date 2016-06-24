@@ -49,4 +49,17 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
   config.active_support.deprecation = :log
+
+  ActionMailer::Base.delivery_method = :smtp
+
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  # SMTP settings for gmail
+    ActionMailer::Base.smtp_settings = {
+    :address              => "smtp.live.com",
+    :port                 => 25,
+    :user_name            => ENV['EMAIL_USERNAME'],
+    :password             => ENV['EMAIL_PASSWORD'],
+    :authentication       => :plain
+  }
 end
