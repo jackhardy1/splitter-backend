@@ -83,4 +83,18 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.default_url_options = { host: 'splitter-backend.herokuapp.com' }
+
+
+  ActionMailer::Base.delivery_method = :smtp
+  # SMTP settings for gmail
+    ActionMailer::Base.smtp_settings = {
+    :address              => "smtp.live.com",
+    :port                 => 25,
+    :user_name            => ENV['EMAIL_USERNAME'],
+    :password             => ENV['EMAIL_PASSWORD'],
+    :authentication       => :plain
+  }
+
 end
