@@ -1,23 +1,13 @@
 module Converter
 
   def tesseract
-    system("convert #{Bill.last.image.url}  -scale 50% receipt.jpg")
-    system("convert receipt.jpg -type Grayscale receipt.jpg")
+    system("convert #{Bill.last.image.url} -fill black -draw 'color 5,5 floodfill' -negate -resize 120% receipt.jpg")
     system("tesseract receipt.jpg output")
-    find_total
     create_items
     system("rm output.txt")
     system("rm receipt.jpg")
   end
-
-  private
-
-  def find_total
-   a = File.readlines('./output.txt').grep(/TOTAL/)
-   b = a.map {|x| x[/\d+(?:[.,]\d+)?/].to_f}[0]
-   Bill.last.update(total:"#{b}")
-  end
-
+  
   def create_items
    File.open './output.txt', 'r' do |file|
      file.each_line do |line|
@@ -44,7 +34,7 @@ module Converter
   end
 
   def search_for_words(line)
-    line.split(" ").select{|word|word.match(/([a-z])/)}.join(" ")
+    line.split(" ").select{|word|word.match(/([a-zA-Z])/)}.join(" ").capitalize
   end
 
 end
