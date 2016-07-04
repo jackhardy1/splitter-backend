@@ -9,21 +9,20 @@ For this project, we used a completely de-coupled frontend and backend.
 For a live demo: https://vimeo.com/172722048.
 
 ##Splitter Backend
-=====================
 
-## Technologies used
+### Technologies used
 - Ruby on Rails
 - PostgreSQL
 
-## Instructions for setup
-- $ git clone https://github.com/jackhardy1/splitter-backend
-- $ bundle install
+### Instructions for setup
+`$ git clone https://github.com/jackhardy1/splitter-backend`
+`$ bundle install`
 
-## To run server
-- $ rails server
+### To run server
+`$ rails server`
 
-## To run the unit tests, using RSpec, run:
-- $ rspec
+### To run the unit tests, using RSpec, run:
+`$ rspec`
 
 
 ##Contributors
